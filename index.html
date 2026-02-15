@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sraboni - Your AI Companion</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Sraboni - AI Voice Companion">
+    <meta name="description" content="A sweet, intelligent AI assistant for coding and emotional support.">
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Anime Background Overlay */
+        .anime-bg {
+            position: fixed;
+            inset: 0;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGY5OHRieXNueWV2ZG96MHRiZTR4eGxlc2M4dmJ2eXV4eXN6eDlpOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L59vS0q6KByX6/giphy.gif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            filter: grayscale(20%) brightness(0.6) blur(1px);
+            z-index: -1;
+            pointer-events: none;
+            transition: opacity 1s ease, filter 1s ease;
+        }
+
+        .comfort-mode-bg {
+            opacity: 0.25;
+            filter: sepia(30%) hue-rotate(320deg) brightness(0.7) blur(2px);
+        }
+
+        .font-romantic {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            will-change: transform, opacity;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .7; transform: scale(1.05); }
+        }
+        
+        .glass-morphism {
+            background: rgba(15, 15, 20, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Initial Loading State */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-orb {
+            width: 40px;
+            height: 40px;
+            background: #ec4899;
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="loader">
+        <div class="loading-orb"></div>
+    </div>
+    <div id="root"></div>
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 500);
+            }
+        });
+    </script>
+</body>
+</html>

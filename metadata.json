@@ -1,0 +1,7 @@
+{
+  "name": "Sraboni - Your AI Companion",
+  "description": "A sweet, flirty, and highly intelligent AI Voice Assistant for coding help and emotional support.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
